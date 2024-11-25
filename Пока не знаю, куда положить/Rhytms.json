@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Простой бой",
+    "pattern": "d u d u"
+  },
+  {
+    "name": "Шестерка",
+    "pattern": "d d u u d u"
+  },
+  {
+    "name": "Бой с глушением",
+    "pattern": "d x d u x u"
+  },
+  {
+    "name": "Тройка",
+    "pattern": "d d u"
+  },
+  {
+    "name": "Акцентированный бой",
+    "pattern": "D u d U d u"
+  },
+  {
+    "name": "Шестерка с паузами",
+    "pattern": "d p d u p u d u"
+  }
+]
