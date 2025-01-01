@@ -1,0 +1,159 @@
+@startuml
+
+<style>
+note {
+    MaximumWidth 600
+}
+</style>
+
+
+map "User" as User {
+    id => UUID
+    username => String
+    email => String
+    password_hash => String
+    status => String
+    created_at => Timestamp
+    updated_at => Timestamp
+}
+
+note top
+Используйте middleware или API-шлюз
+для ограничения количества запросов от одного клиента
+(например, не более 50 запросов в минуту).
+
+Если человек пытается создать больше 5(?) проектов,
+паттернов, версий проекта
+в минуту, просить его пройти капчу
+
+Ограничить макс число версий одного проекта 100
+Макс число паттернов - 1000?
+Макс число доп аккордов - 500?
+Макс длина проекта? (Около 20 минут)
+end note
+
+map "Project" as Project {
+    id => UUID
+    user_id => UUID
+    name => String
+    description => Text
+    created_at => Timestamp
+    updated_at => Timestamp
+}
+
+note top
+Кэшировать запросы, результат которых редко меняется
+Например, список проектов
+Redis, Memcached
+end note
+
+map "Pattern" as Pattern {
+    id => UUID
+    user_id => UUID
+    name => String
+    content => Text
+    created_at => Timestamp
+    updated_at => Timestamp
+}
+
+map "Chord" as Chord {
+    id => UUID
+    user_id => UUID
+    name => String
+    notes => Text
+    created_at => Timestamp
+    updated_at => Timestamp
+}
+
+
+map "OAuthAccount" as OAuthAccount {
+    id => UUID
+    user_id => UUID
+    provider => String
+    provider_user_id => String
+    access_token => String
+    refresh_token => String
+    token_expiry => Timestamp
+}
+
+
+note bottom
+Таблица **OAuthAccount** нужна для управления привязкой аккаунтов пользователя к различным внешним OAuth-провайдерам, таким как Google, ВКонтакте, Яндекс и другие.
+
+Вот её назначение:
+
+1. **Мультиавторизация**: Пользователь может войти в приложение
+через аккаунты внешних провайдеров (например, Google, VK).
+2. **Синхронизация данных**: Привязка позволяет связать внешний аккаунт
+с профилем в приложении.
+3. **Управление токенами**: Хранение токенов доступа, сроков их действия
+и обновления для удобного взаимодействия с API провайдеров.
+4. **Безопасность**: Поля `access_token`, `refresh_token`, и `token_expiry`
+помогают управлять сессиями, минимизируя риск несанкционированного доступа.
+
+Что делать при смене пароля в условном гугле? Как при этом выйти из нашего аккаунта?
+
+Как работает авторизация через другие сервисы (OAuth):
+OAuth позволяет пользователю авторизоваться в вашем приложении через внешний сервис (например, Google, VK и т. д.) без необходимости создавать отдельный аккаунт. Принцип работы следующий:
+
+Запрос на авторизацию: Пользователь кликает на кнопку "Войти через Google" (или другой сервис). Приложение перенаправляет его на страницу авторизации внешнего сервиса (например, Google).
+
+Предоставление доступа: Пользователь подтверждает, что хочет предоставить вашему приложению доступ к своим данным (например, e-mail, имя и т. д.).
+
+Получение токенов: В случае успешной авторизации внешний сервис возвращает два токена — access_token (токен доступа) и refresh_token (токен для обновления).
+
+Использование токенов:
+
+access_token используется для выполнения запросов к API внешнего сервиса.
+refresh_token используется для получения нового access_token после его истечения.
+Сохранение токенов: Токены сохраняются в вашей базе данных в таблице OAuthAccount для дальнейшего использования в процессе авторизации и синхронизации с внешним сервисом.
+
+Обновление токенов: Когда срок действия access_token истекает, можно использовать refresh_token для получения нового access_token.
+
+Таким образом, при смене пароля в Google или любом другом внешнем сервисе, ваш механизм должен либо удалять старые токены (что приведет к сбросу сессий), либо заставить пользователя пройти авторизацию заново через OAuth.
+end note
+
+map "AuthToken" as AuthToken {
+    id => UUID
+    user_id => UUID
+    token => String
+    created_at => Timestamp
+    expires_at => Timestamp
+}
+
+' Хранение версий проектов
+map "ProjectVersion" as ProjectVersion {
+    id => UUID
+    project_id => UUID
+    version_number => Integer
+    content => Text
+    created_at => Timestamp
+}
+
+' Промежуточная таблица для связи пользователей, паттернов и проектов
+map "UserPatternProjectLink" as UserPatternProjectLink {
+    id => UUID
+    pattern_id => UUID
+    project_id => UUID
+}
+
+map "ProjectDraft" as ProjectDraft {
+    id => UUID
+    project_id => UUID
+    content => Text
+    created_at => Timestamp
+    updated_at => Timestamp
+}
+
+
+User "1" o-- "M" Project
+User "1" o-- "M" Chord
+User "1" o-- "M" OAuthAccount
+User "1" o-- "M" AuthToken
+User "1" o-- "M" Pattern
+Project "1" o-- "M" ProjectVersion
+Project "1" o-- "1" ProjectDraft
+
+Pattern "1" o-- "M" UserPatternProjectLink
+Project "1" o-- "M" UserPatternProjectLink
+@enduml
