@@ -1,0 +1,174 @@
+@startuml
+
+<style>
+note {
+    MaximumWidth 500
+}
+</style>
+
+title Архитектура сайта для написания песен на гитаре
+
+package "Frontend" {
+  package "UI Components" {
+    class "ChordSelector" {
+      + selectChord(): void
+      + getSelectedChord(): Chord
+    }
+
+    class "PatternSelector" {
+      + selectPattern(): void
+      + getSelectedPattern(): Pattern
+    }
+
+    class "MusicLineEditor" {
+      + addChord(chord: Chord): void
+      + addTextAboveLine(text: String): void
+      + addStrum(direction: String, type: String): void
+        + addPause(): void
+        + addMutedStrum(): void
+        + addNewMusicLine(): void
+        + removeLine(lineIndex: int): void
+        + copy(): void
+        + paste(): void
+        + moveSelected(): void
+        + cancelMove(): void
+        + selectElement(): void
+        + deselectElement(): void
+        + deleteElement(): void
+        + backspaceDelete(): void
+    }
+
+    note top
+        1) ходить "курсором" вверх, вниз, вправо, влево (стрелки на клавиатуре) по музыкальной линии
+        2) по нажатию ctrl + стрелка вниз, или стрелка вверх - на музыкальную линию добавляется удар вниз или вверх соответственно
+        3) по нажатию ctrl + shift+ стрелка вниз, или стрелка вверх - на музыкальную линию добавляется короткий удар вниз или вверх соответственно
+        4) ctrl + p - добавляет паузу на музыкальную линию
+        5) ctrl + x - добавляет заглушенный удар по струнам
+        6) ctrl + "+" - добавляет новую музыкальную линию
+        7) ctrl + c - скопировать выделенное
+        8) ctrl + v - вставить
+        9) ЛКМ - двигать то, что выделено
+        9.1) ПКМ - отменить перемещение ЛКМ
+        10) Выделение курсором
+        11) ctrl +  ЛКМ - добавляет элемент к выделенным
+        12) ctrl + ПКМ - убирает выделенный элемент
+        13) delete - удаляет либо элемент следующий, который стоит спереди курсора, либо удаляет выделенное
+        14) backspace - удаляет элемент сзади курсора, либо удаляет выделенное
+        15) tab - позволяет ходить по элементам сайта, в том числе по элементам на музыкальной линии, выделяет их, когда попадает на них
+        end note
+
+    class "ControlPanel" {
+      + undo(): void
+      + redo(): void
+      + exportMusic(): void
+      + importMusic(file: File): void
+      + moveCursor(direction: String): void
+      + tabNavigation(): void
+    }
+  }
+
+  package "Audio Playback" {
+    class "AudioPlayer" {
+      + play(): void
+      + pause(): void
+      + stop(): void
+      + setBPM(bpm: int): void
+    }
+  }
+
+  package "Files" {
+    class "FileControlPanel" {
+      + upload(file: File): String
+      + download(url: String): File
+    }
+  }
+}
+
+package "Backend" {
+  package "Controllers" {
+    class "ChordController" {
+      + getChords(): List<Chord>
+      + createChord(chord: Chord): void
+    }
+
+    class "FileController" {
+        + ImportMusic(): MusicData
+        + ExportMusic()
+    }
+
+    class "PatternController" {
+      + getPatterns(): List<Pattern>
+      + createPattern(pattern: Pattern): void
+    }
+
+    class "MusicController" {
+      + saveMusic(data: MusicData): void
+    }
+
+    class "ExportController" {
+      + exportToFormat(format: String, data: MusicData): File
+    }
+  }
+
+  package "Services" {
+    class "ChordService" {
+      + getAllChords(): List<Chord>
+      + createCustomChord(chord: Chord): void
+    }
+
+    class "PatternService" {
+      + getAllPatterns(): List<Pattern>
+      + createCustomPattern(pattern: Pattern): void
+    }
+
+    class "MusicExportService" {
+      + exportToMidi(data: MusicData): File
+      + exportToChords(data: MusicData): File
+      + exportToNotes(data: MusicData): File
+    }
+  }
+
+  package "Data Models" {
+    class "Chord" {
+      + name: String
+      + notes: List<Note>
+    }
+
+    class "Pattern" {
+      + name: String
+      + steps: List<String>
+    }
+
+    class "MusicData" {
+      + lines: List<MusicLine>
+      + bpm: int
+    }
+
+    class "MusicLine" {
+      + chords: List<Chord>
+      + textAboveLine: String
+    }
+
+    class "Note" {
+      + pitch: String
+      + duration: Double
+    }
+
+    note right
+    например, 1/4, 1/8...
+    end note
+
+    MusicData o-- MusicLine
+  }
+}
+
+"FileControlPanel" --> "FileController"
+"ChordSelector" --> "ChordController" : uses
+"PatternSelector" --> "PatternController" : uses
+"MusicLineEditor" --> "MusicController" : modifies
+"ControlPanel" --> "ExportController" : calls
+"AudioPlayer" --> "MusicData" : uses
+"ChordController" --> "ChordService" : delegates
+"PatternController" --> "PatternService" : delegates
+"ExportController" --> "MusicExportService" : delegates
+@enduml
