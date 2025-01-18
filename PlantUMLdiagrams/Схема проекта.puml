@@ -10,6 +10,11 @@ title Архитектура сайта для написания песен н�
 
 package "Frontend" {
   package "UI Components" {
+    class "LoadMainPage" {
+        + chords: Chord[]
+        + LoadChords(): void
+    }
+
     class "ChordSelector" {
       + selectChord(): void
       + getSelectedChord(): Chord
@@ -38,7 +43,7 @@ package "Frontend" {
         + backspaceDelete(): void
     }
 
-    note top
+    note left
         1) ходить "курсором" вверх, вниз, вправо, влево (стрелки на клавиатуре) по музыкальной линии
         2) по нажатию ctrl + стрелка вниз, или стрелка вверх - на музыкальную линию добавляется удар вниз или вверх соответственно
         3) по нажатию ctrl + shift+ стрелка вниз, или стрелка вверх - на музыкальную линию добавляется короткий удар вниз или вверх соответственно
@@ -60,8 +65,6 @@ package "Frontend" {
     class "ControlPanel" {
       + undo(): void
       + redo(): void
-      + exportMusic(): void
-      + importMusic(file: File): void
       + moveCursor(direction: String): void
       + tabNavigation(): void
     }
@@ -72,14 +75,21 @@ package "Frontend" {
       + play(): void
       + pause(): void
       + stop(): void
+      + back(): void
+      + forward(): void
       + setBPM(bpm: int): void
     }
+
+    note top
+    BPM устанавливается проекту
+    и сохраняется
+    end note
   }
 
   package "Files" {
     class "FileControlPanel" {
-      + upload(file: File): String
-      + download(url: String): File
+        + exportMusic(): File (void?)
+        + importMusic(file: File): void
     }
   }
 }
@@ -92,8 +102,8 @@ package "Backend" {
     }
 
     class "FileController" {
-        + ImportMusic(): MusicData
-        + ExportMusic()
+        + ImportMusicToProject(token: String, ): MusicData
+        + ExportMusic(String format): File
     }
 
     class "PatternController" {
@@ -101,16 +111,25 @@ package "Backend" {
       + createPattern(pattern: Pattern): void
     }
 
-    class "MusicController" {
-      + saveMusic(data: MusicData): void
+    class "ProjectController" {
+      + SaveProjectDraft(data: MusicData): void
+      + SaveProjectVersion(data: MusicData): void
+      + SetBPM(bpm: int): void
     }
 
-    class "ExportController" {
-      + exportToFormat(format: String, data: MusicData): File
-    }
+    note left
+    Сохранение мелодии в черновик каждые 5 минут
+    + при переключении на другие вкладки
+    end note
   }
 
   package "Services" {
+    class ProjectService {
+        + SaveProjectDraft(data: MusicData): void
+        + SaveProjectVersion(data: MusicData): void
+        + SetBPM(bpm: int): void
+    }
+
     class "ChordService" {
       + getAllChords(): List<Chord>
       + createCustomChord(chord: Chord): void
@@ -121,7 +140,7 @@ package "Backend" {
       + createCustomPattern(pattern: Pattern): void
     }
 
-    class "MusicExportService" {
+    class "ExportService" {
       + exportToMidi(data: MusicData): File
       + exportToChords(data: MusicData): File
       + exportToNotes(data: MusicData): File
@@ -150,8 +169,7 @@ package "Backend" {
     }
 
     class "Note" {
-      + pitch: String
-      + duration: Double
+      +
     }
 
     note right
@@ -162,13 +180,31 @@ package "Backend" {
   }
 }
 
+package Database <<Database>> {
+  class Users
+  class Patterns
+  class Chords
+  class ProjectDrafts
+  class Projects
+  class ProjectVersions
+  class PatternProjectLink
+  class OAuthAccount
+  class AuthToken
+}
+
 "FileControlPanel" --> "FileController"
-"ChordSelector" --> "ChordController" : uses
-"PatternSelector" --> "PatternController" : uses
-"MusicLineEditor" --> "MusicController" : modifies
-"ControlPanel" --> "ExportController" : calls
-"AudioPlayer" --> "MusicData" : uses
-"ChordController" --> "ChordService" : delegates
-"PatternController" --> "PatternService" : delegates
-"ExportController" --> "MusicExportService" : delegates
+"ChordSelector" --> "ChordController"
+"PatternSelector" --> "PatternController"
+"MusicLineEditor" --> "ProjectController"
+"AudioPlayer" --> "MusicData"
+"ChordController" --> "ChordService"
+"PatternController" --> "PatternService"
+"FileController" --> "ExportService"
+
+"LoadMainPage" --> "ChordController"
+"LoadMainPage" --> "PatternController"
+"ProjectController" --> ProjectService
+
+ProjectService ..> ProjectDrafts
+ProjectService ..> ProjectVersions
 @enduml

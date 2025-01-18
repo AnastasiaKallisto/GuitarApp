@@ -7,7 +7,7 @@ note {
 </style>
 
 
-map "User" as User {
+map "Users" as Users {
     id => UUID
     username => String
     email => String
@@ -32,7 +32,7 @@ note top
 Макс длина проекта? (Около 20 минут)
 end note
 
-map "Project" as Project {
+map "Projects" as Projects {
     id => UUID
     user_id => UUID
     name => String
@@ -47,7 +47,7 @@ note top
 Redis, Memcached
 end note
 
-map "Pattern" as Pattern {
+map "Patterns" as Patterns {
     id => UUID
     user_id => UUID
     name => String
@@ -56,7 +56,7 @@ map "Pattern" as Pattern {
     updated_at => Timestamp
 }
 
-map "Chord" as Chord {
+map "Chords" as Chords {
     id => UUID
     user_id => UUID
     name => String
@@ -122,38 +122,39 @@ map "AuthToken" as AuthToken {
 }
 
 ' Хранение версий проектов
-map "ProjectVersion" as ProjectVersion {
+map "ProjectVersions" as ProjectVersions {
     id => UUID
     project_id => UUID
     version_number => Integer
     content => Text
+    bpm => Integer
     created_at => Timestamp
 }
 
-' Промежуточная таблица для связи пользователей, паттернов и проектов
-map "UserPatternProjectLink" as UserPatternProjectLink {
+
+map "PatternProjectLink" as PatternProjectLink {
     id => UUID
     pattern_id => UUID
     project_id => UUID
 }
 
-map "ProjectDraft" as ProjectDraft {
+map "ProjectDrafts" as ProjectDrafts {
     id => UUID
     project_id => UUID
     content => Text
+    bpm => Integer
     created_at => Timestamp
     updated_at => Timestamp
 }
 
 
-User "1" o-- "M" Project
-User "1" o-- "M" Chord
-User "1" o-- "M" OAuthAccount
-User "1" o-- "M" AuthToken
-User "1" o-- "M" Pattern
-Project "1" o-- "M" ProjectVersion
-Project "1" o-- "1" ProjectDraft
-
-Pattern "1" o-- "M" UserPatternProjectLink
-Project "1" o-- "M" UserPatternProjectLink
+Users "1" o-- "M" Projects
+Users "1" o-- "M" Chords
+Users "1" o-- "M" OAuthAccount
+Users "1" o-- "M" AuthToken
+Users "1" o-- "M" Patterns
+Projects "1" o-- "M" ProjectVersions
+Projects "1" o-- "1" ProjectDrafts
+Patterns "1" o-- "M" PatternProjectLink
+Projects "1" o-- "M" PatternProjectLink
 @enduml
