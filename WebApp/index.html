@@ -1,28 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Воспроизведение звуков</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body> 
- 
-    <label for="chords">Выберите аккорд:</label> 
-    <select id="chords"> 
-        <option value="">Выберите...</option> 
-    </select> 
+<body>
+    <h1>Звучащие кнопки</h1>
+    <button onclick="playSound('resources/mutedSounds/string0tone5.wav')">Muted Sound</button>
+    <button onclick="playSound('resources/normalSounds/string0tone5.wav')">Normal Sound</button>
+    <button onclick="playSound('resources/quietSounds/string0tone5.wav')">Quiet Sound</button>
+    <button onclick="playSound('resources/sounds/string0tone5.wav')">Sound</button>
 
-    <label for="fingerpickingPatterns">Выберите перебор:</label> 
-    <select id="fingerpickingPatterns">
-        <option value="">Выберите...</option> 
-    </select>
- 
-    <button class="fingerpickBtn">Воспроизвести перебор</button> 
-    <button class="chordBtn">Воспроизвести аккорд</button> 
- 
-    <audio id="audioPlayer" style="display: none;"></audio> 
- 
-    <script src="script.js" defer></script> 
-</body> 
+    <script src="script.js"></script>
+</body>
 </html>
