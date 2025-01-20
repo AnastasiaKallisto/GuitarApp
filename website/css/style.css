@@ -5,7 +5,8 @@
 }
 
 body {
-  background-color: #808080;
+  background-color: #ccd7d8;
+  font-size: 20px;
 }
 
 .menu {
@@ -33,13 +34,13 @@ body {
 /* burger */
 
 .menu .menu-burger__header {
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background: black;
   position: absolute;
-  left: calc(100% + 10px);
-  top: 10px;
+  left: calc(100% + 15px);
+  top: 15px;
   cursor: pointer;
 }
 
