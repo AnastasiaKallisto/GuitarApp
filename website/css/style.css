@@ -7,6 +7,8 @@
 body {
   background-color: #ccd7d8;
   font-size: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 .menu {
@@ -44,6 +46,11 @@ body {
   cursor: pointer;
 }
 
+.menu .menu-burger__header:hover {
+  transform: scale(1.1);
+  transition: all .2s ease;
+}
+
 /* burger | open */
 
 .menu .menu-burger__header::before,
@@ -60,6 +67,12 @@ body {
   transform: translate(-50%, -50%);
   transition-duration: 0.3s;
   transition-timing-function: ease;
+}
+
+.menu .menu-burger__header:hover::before,
+.menu .menu-burger__header:hover span,
+.menu .menu-burger__header:hover::after {
+  background: white;
 }
 
 .menu .menu-burger__header::before {
