@@ -14,7 +14,7 @@
   height: 100%;
 }
 
-.navbar .nav-dropbtn {
+.navbar .button-menu {
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -25,19 +25,19 @@
   cursor: pointer;
 }
 
-.nav-dropbtn {
+.button-menu {
   animation: BtnAppearing 0.3s ease-out 0.5s;
   animation-fill-mode: backwards;
 }
 
-.navbar .nav-dropbtn:hover {
+.navbar .button-menu:hover {
   transform: scale(1.1);
   transition: all 0.2s ease;
 }
 
-.navbar .nav-dropbtn::before,
-.navbar .nav-dropbtn > span,
-.navbar .nav-dropbtn::after {
+.navbar .button-menu::before,
+.navbar .button-menu > span,
+.navbar .button-menu::after {
   content: "";
   display: block;
   width: 20px;
@@ -51,37 +51,37 @@
   transition-timing-function: ease;
 }
 
-.navbar .nav-dropbtn:hover::before,
-.navbar .nav-dropbtn:hover span,
-.navbar .nav-dropbtn:hover::after {
+.navbar .button-menu:hover::before,
+.navbar .button-menu:hover span,
+.navbar .button-menu:hover::after {
   background: white;
 }
 
-.navbar .nav-dropbtn::before {
+.navbar .button-menu::before {
   top: calc(50% - 8px);
   transform-origin: transition-property top, transform;
 }
 
-.navbar .nav-dropbtn > span {
+.navbar .button-menu > span {
   top: 50%;
   transition-property: opacity;
 }
 
-.navbar .nav-dropbtn::after {
+.navbar .button-menu::after {
   top: calc(50% + 8px);
   transition-property: top, transform;
 }
 
-.navbar.active .nav-dropbtn > span {
+.navbar.active .button-menu > span {
   opacity: 0;
 }
 
-.navbar.active .nav-dropbtn::after {
+.navbar.active .button-menu::after {
   top: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.nav-dropbtn {
+.button-menu {
   background-color: #4caf50;
   color: white;
   padding: 16px;
@@ -103,20 +103,19 @@
   z-index: 1;
 }
 
+.show {
+  display: block;
+}
+
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
-  text-decoration: none;
   display: block;
 }
 
 a img {
   width: 20px;
   height: 20px;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
 }
 
 .dropdown-content a:hover {
