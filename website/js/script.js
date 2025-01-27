@@ -7,14 +7,14 @@ burger.addEventListener("click", function (e) {
 
 /* Когда юзер нажимает появляется меню */
 function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("Dropdown-menu").classList.toggle("show");
 }
 
 // Меню закрывается, когда юзер кликает за меню
 window.onclick = function(event) {
 if (!event.target.matches('.button-menu')) {
 
-  var dropdowns = document.getElementsByClassName("dropdown-content");
+  var dropdowns = document.getElementsByClassName("dropdown-menu-content");
   var i;
   for (i = 0; i < dropdowns.length; i++) {
     var openDropdown = dropdowns[i];
