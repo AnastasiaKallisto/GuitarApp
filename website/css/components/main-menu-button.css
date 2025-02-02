@@ -1,26 +1,18 @@
 /*Сама кнопка (относительно navbar, в котором лежит)*/
 
-.main-menu-navbar .button-menu {
+.button-menu {
   width: 45px;
   height: 45px;
   border-radius: 50%;
   background: black;
   position: absolute;
-  left: 15px;
-  top: 15px;
   cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
+.button-menu:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
 
 
 
@@ -28,9 +20,9 @@
 
 /*Три белых полоски и их поведение при наведении мыши*/
 
-.main-menu-navbar .button-menu::before,
-.main-menu-navbar .button-menu > span,
-.main-menu-navbar .button-menu::after {
+.button-menu::before,
+.button-menu > span,
+.button-menu::after {
   content: "";
   display: block;
   width: 20px;
@@ -44,32 +36,31 @@
   transition-timing-function: ease;
 }
 
-.main-menu-navbar .button-menu:hover::before,
-.main-menu-navbar .button-menu:hover span,
-.main-menu-navbar .button-menu:hover::after {
+.button-menu:hover::before,
+.button-menu:hover span,
+.button-menu:hover::after {
   background: white;
 }
 
-.main-menu-navbar .button-menu::before {
+.button-menu::before {
   top: calc(50% - 8px);
   transform-origin: transition-property top, transform;
 }
 
-.main-menu-navbar .button-menu > span {
+.button-menu > span {
   top: 50%;
   transition-property: opacity;
 }
 
-.main-menu-navbar .button-menu::after {
+.button-menu::after {
   top: calc(50% + 8px);
   transition-property: top, transform;
 }
 
-.main-menu-navbar.active .button-menu > span {
+.active .button-menu > span {
   opacity: 0;
 }
 
-.main-menu-navbar.active .button-menu::after {
-  top: 50%;
+.active .button-menu::after {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
