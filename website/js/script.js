@@ -22,7 +22,7 @@ dropdownMenu.addEventListener("mouseenter", () => {
 
 // Меню закрывается, когда юзер кликает за меню
 window.onclick = function(event) {
-if (!event.target.matches('.button-menu')) {
+if (!event.target.matches('.main-menu-button')) {
 
   var dropdowns = document.getElementsByClassName("dropdown-menu-content");
   var i;
