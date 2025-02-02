@@ -1,17 +1,17 @@
 @import url(main-menu-button.css);
 
 .container {
-  position: fixed;
+  position: fixed; /* fixed - будет виден в том числе при прокрутке страницы*/
   display: block;
-  width: 320px;
+  width: 175px;
 }
 
 .dropdown-menu-content {
   display: none;
-  position: absolute;
+  position: relative;
   margin-top: 30px;
+  border-radius: 6px;
   background-color: #f1f1f1;
-  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -21,9 +21,10 @@
 }
 
 .dropdown-menu-content a {
+  border-radius: 6px;
   color: black;
-  padding: 12px 16px;
-  display: block;
+  padding: 12px 14px;
+  display: flex;
 }
 
 a img {
