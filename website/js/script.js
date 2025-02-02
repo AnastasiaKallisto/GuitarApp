@@ -1,14 +1,24 @@
-let burger = document.querySelector(".menu-dropbtn"),
-  menu = document.querySelector(".menu");
+const dropdownMenu = document.getElementById("MainMenuDropdown");
+let hideTimeout; // Переменная для хранения идентификатора таймера
 
-burger.addEventListener("click", function (e) {
-  menu.classList.toggle("active");
+function openMainMenu(){
+  dropdownMenu.classList.toggle("show");
+}
+
+dropdownMenu.addEventListener("mouseleave", () => {
+    // Устанавливаем таймер и сохраняем его ID
+    hideTimeout = setTimeout(() => {
+        dropdownMenu.classList.remove("show");
+    }, 1000);
 });
 
-/* Когда юзер нажимает появляется меню */
-function myFunction() {
-  document.getElementById("Dropdown-menu").classList.toggle("show");
-}
+dropdownMenu.addEventListener("mouseenter", () => {
+    // Если таймер активен — отменяем его
+    if (hideTimeout) {
+        clearTimeout(hideTimeout);
+        hideTimeout = null;
+    }
+});
 
 // Меню закрывается, когда юзер кликает за меню
 window.onclick = function(event) {
