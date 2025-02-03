@@ -13,6 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
-*/obj
-*/bin
-*/.vs
+obj
+bin
+.vs
