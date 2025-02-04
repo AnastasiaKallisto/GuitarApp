@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1
+﻿namespace SoundChanger
 {
     public class AttackReleaseSampleProvider : ISampleProvider
     {

@@ -1,9 +1,4 @@
-﻿using NAudio.Wave;
-using NAudio.Wave.SampleProviders;
-using System;
-using System.IO;
-
-namespace ConsoleApp1
+﻿namespace SoundChanger
 {
     class Program
     {
