@@ -1,0 +1,27 @@
+{
+    "name": "бой-четверка",
+    "pattern": 
+    [
+        {
+            "accent": "n",
+            "duration": 0.25,
+            "direction": "D"
+        },
+        {
+            "accent": "n",
+            "duration": 0.25,
+            "direction": "U"
+        },
+        {
+            "accent": "a",
+            "duration": 0.25,
+            "direction": "D"
+        },
+        {
+        "accent": "m",
+        "duration": 0.25,
+        "direction": "U"
+        }
+    ]
+}
+  
