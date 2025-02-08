@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuitarDbDataFiller", "Guita
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{952CBC7A-AB3D-42F9-84CC-76FF339AA766}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuitarDbContext", "GuitarDbContext\GuitarDbContext.csproj", "{CBF30927-52C6-4379-9C9C-18F19087B04F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{952CBC7A-AB3D-42F9-84CC-76FF339AA766}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{952CBC7A-AB3D-42F9-84CC-76FF339AA766}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{952CBC7A-AB3D-42F9-84CC-76FF339AA766}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF30927-52C6-4379-9C9C-18F19087B04F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF30927-52C6-4379-9C9C-18F19087B04F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF30927-52C6-4379-9C9C-18F19087B04F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF30927-52C6-4379-9C9C-18F19087B04F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
