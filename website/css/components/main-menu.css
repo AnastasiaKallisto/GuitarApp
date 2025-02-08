@@ -47,3 +47,7 @@ ul {
 li img {
   margin-right: 10px;
 }
+
+.nav-menu .MenuLink.active {
+  background-color: #A9A9A9;
+}
