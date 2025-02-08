@@ -11,23 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddeb97f5-6e2f-43a1-9470-9c6b2e2e4440" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GuitarApp/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GuitarSongCraft/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Contracts/Contracts.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Contracts/DbContext/ApplicationDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Contracts/run_migrations.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuitarApp/Readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuitarDbDataFiller/GuitarDbDataFiller.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuitarDbDataFiller/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuitarSongCraft.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GuitarApp/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GuitarSongCraft/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GuitarApp/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GuitarSongCraft/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GuitarApp/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GuitarSongCraft/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuitarApp.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuitarApp/DbContext/ApplicationDbContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuitarApp/DbContext/run_migrations.bat" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuitarDbContext/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GuitarApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GuitarApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/Contracts.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/Contracts.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/DbContext/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GuitarDbContext/DbContext/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/Migrations/20250208104406_InitialCreate.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GuitarDbContext/Migrations/20250208104406_InitialCreate.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/Migrations/20250208104406_InitialCreate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GuitarDbContext/Migrations/20250208104406_InitialCreate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GuitarDbContext/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contracts/run_migrations.bat" beforeDir="false" afterPath="$PROJECT_DIR$/GuitarDbContext/run_migrations.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GuitarApp/GuitarApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GuitarApp/GuitarApp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuitarApp/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Contracts/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GuitarDbDataFiller/GuitarDbDataFiller.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GuitarDbDataFiller/GuitarDbDataFiller.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GuitarDbDataFiller/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GuitarDbDataFiller/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GuitarSongCraft.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GuitarSongCraft.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +52,7 @@
     &quot;.NET Project.GuitarDbDataFiller.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;fullstack/kallisto/GW-21-database&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -143,7 +138,7 @@
       <workItem from="1738948040584" duration="101000" />
       <workItem from="1738948151501" duration="325000" />
       <workItem from="1738948509282" duration="3761000" />
-      <workItem from="1738997649809" duration="9417000" />
+      <workItem from="1738997649809" duration="10240000" />
     </task>
     <servers />
   </component>
@@ -170,13 +165,13 @@
           <line>22</line>
           <properties documentPath="D:\Kallisto\Музыка\GuitarApp\GuitarDbDataFiller\Program.cs" containingFunctionPresentation="Method 'Main'">
             <startOffsets>
-              <option value="586" />
+              <option value="592" />
             </startOffsets>
             <endOffsets>
-              <option value="634" />
+              <option value="640" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

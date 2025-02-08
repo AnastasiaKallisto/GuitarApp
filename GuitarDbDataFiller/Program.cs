@@ -1,5 +1,5 @@
-﻿using Contracts.DbContext;
-using Contracts.Models;
+﻿using Contracts.Models;
+using GuitarDbContext.DbContext;
 
 namespace GuitarDbDataFiller;
 
