@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GuitarApp.Models;
+namespace Contracts.Models;
 
 public class User
 {
