@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GuitarSongCraft</title>
+    <link rel="stylesheet" href="css/components/main-menu.css" />
+    <link rel="stylesheet" href="css/components/main-menu-button.css">
+    <link rel="stylesheet" href="css/layout/header.css" />
+    <link rel="stylesheet" href="css/layout/common.css" />
+  </head>
+  <body>
+    <div class="container dropdown" id="menu-container">
+      <button onclick="window.openMainMenu()" class="main-menu-button">
+        <span></span>
+      </button>
+      <div id="MenuDropdown" class="dropdown-menu-content">
+        <ul class="nav-menu">
+          <li>
+            <a href="play.html" class="MenuLink"
+              ><img src="purple.png" alt="Фиолетовый" />ИГРАТЬ</a
+            >
+          </li>
+          <li>
+            <a href="strum.html" class="MenuLink"
+              ><img src="purple.png" alt="Фиолетовый" />БОЙ</a
+            >
+          </li>
+          <li>
+            <a href="picking.html" class="MenuLink"
+              ><img src="purple.png" alt="Фиолетовый" />ПЕРЕБОРЫ</a
+            >
+          </li>
+          <li>
+            <a href="chords.html" class="MenuLink"
+              ><img src="purple.png" alt="Фиолетовый" />АККОРДЫ</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
