@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuitarApp", "GuitarApp\GuitarApp.csproj", "{682703BB-C71A-4EF9-BC22-0E2D54853848}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuitarDbDataFiller", "GuitarDbDataFiller\GuitarDbDataFiller.csproj", "{A346A254-D285-4595-80FD-5EFA081C2727}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{952CBC7A-AB3D-42F9-84CC-76FF339AA766}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuitarDbContext", "GuitarDbContext\GuitarDbContext.csproj", "{CBF30927-52C6-4379-9C9C-18F19087B04F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{682703BB-C71A-4EF9-BC22-0E2D54853848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682703BB-C71A-4EF9-BC22-0E2D54853848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682703BB-C71A-4EF9-BC22-0E2D54853848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682703BB-C71A-4EF9-BC22-0E2D54853848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A346A254-D285-4595-80FD-5EFA081C2727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A346A254-D285-4595-80FD-5EFA081C2727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A346A254-D285-4595-80FD-5EFA081C2727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A346A254-D285-4595-80FD-5EFA081C2727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{952CBC7A-AB3D-42F9-84CC-76FF339AA766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{952CBC7A-AB3D-42F9-84CC-76FF339AA766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{952CBC7A-AB3D-42F9-84CC-76FF339AA766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{952CBC7A-AB3D-42F9-84CC-76FF339AA766}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF30927-52C6-4379-9C9C-18F19087B04F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF30927-52C6-4379-9C9C-18F19087B04F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF30927-52C6-4379-9C9C-18F19087B04F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF30927-52C6-4379-9C9C-18F19087B04F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
