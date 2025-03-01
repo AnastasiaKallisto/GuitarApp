@@ -1,0 +1,53 @@
+/*Сама кнопка главного меню*/
+
+.main-menu-button
+    width: 45px
+    height: 45px
+    border-radius: 50%
+    background: black
+    position: relative
+    cursor: pointer
+
+    &:hover
+        transform: scale(1.1)
+        transition: all 0.2s ease
+
+/*Три белых полоски и их поведение при наведении мыши*/
+
+.main-menu-button::before,
+.main-menu-button > span,
+.main-menu-button::after
+    content: ""
+    display: block
+    width: 20px
+    height: 2px
+    border-radius: 2px
+    background: lightgray
+    position: absolute
+    left: 50%
+    transform: translate(-50%, -50%)
+    transition-duration: 0.3s
+    transition-timing-function: ease
+
+.main-menu-button:hover::before,
+.main-menu-button:hover span,
+.main-menu-button:hover::after
+    background: white
+
+.main-menu-button::before
+    top: calc(50% - 8px)
+    transform-origin: transition-property top, transform
+
+.main-menu-button > span
+    top: 50%
+    transition-property: opacity
+
+.main-menu-button::after
+    top: calc(50% + 8px)
+    transition-property: top, transform
+
+    .active &
+        opacity: 0
+
+.active .main-menu-button::after
+    transform: translate(-50%, -50%) rotate(-45deg)
