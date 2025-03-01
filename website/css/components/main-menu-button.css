@@ -1,5 +1,5 @@
-/*Сама кнопка главного меню*/
-
+/* @charset "UTF-8";
+Сама кнопка главного меню
 .main-menu-button {
   width: 45px;
   height: 45px;
@@ -14,8 +14,7 @@
   transition: all 0.2s ease;
 }
 
-/*Три белых полоски и их поведение при наведении мыши*/
-
+Три белых полоски и их поведение при наведении мыши
 .main-menu-button::before,
 .main-menu-button > span,
 .main-menu-button::after {
@@ -53,10 +52,11 @@
   transition-property: top, transform;
 }
 
-.active .main-menu-button > span {
+.active .main-menu-button::after {
   opacity: 0;
 }
 
 .active .main-menu-button::after {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
+ */
