@@ -1,7 +1,5 @@
-@import url(main-menu-button.css)
-
 .container
-    position: fixed; /* fixed - будет виден в том числе при прокрутке страницы*/
+    position: fixed
     display: block
     width: 175px
 
@@ -13,22 +11,21 @@
     background-color: #f1f1f1
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2)
     z-index: 1
+    & .MenuLink
+        border-radius: 6px
+        color: black
+        padding: 12px 14px
+        display: flex
+
+.MenuLink:hover
+    background-color: grey
 
 .show
     display: block
 
-.dropdown-menu-content a
-    border-radius: 6px
-    color: black
-    padding: 12px 14px
-    display: flex
-
-a img 
+.MenuIcon
     width: 20px
     height: 20px
-
-    &:hover
-        background-color: #ddd
 
 .dropdown:hover .dropbtn
     background-color: #3e8e41
@@ -36,7 +33,7 @@ a img
 ul
     text-align: left
 
-li img 
+li .MenuIcon
     margin-right: 10px
 
 .active .nav-menu .MenuLink
