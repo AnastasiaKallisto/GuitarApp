@@ -1,5 +1,3 @@
-/* @charset "UTF-8";
-Сама кнопка главного меню
 .main-menu-button {
   width: 45px;
   height: 45px;
@@ -14,10 +12,8 @@
   transition: all 0.2s ease;
 }
 
-Три белых полоски и их поведение при наведении мыши
 .main-menu-button::before,
-.main-menu-button > span,
-.main-menu-button::after {
+.main-menu-button > span, .main-menu-button::after {
   content: "";
   display: block;
   width: 20px;
@@ -32,8 +28,7 @@
 }
 
 .main-menu-button:hover::before,
-.main-menu-button:hover span,
-.main-menu-button:hover::after {
+.main-menu-button:hover span, .main-menu-button:hover::after {
   background: white;
 }
 
@@ -52,11 +47,10 @@
   transition-property: top, transform;
 }
 
-.active .main-menu-button::after {
+.main-menu-button .active {
   opacity: 0;
 }
 
 .active .main-menu-button::after {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
- */

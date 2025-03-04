@@ -1,6 +1,3 @@
-@charset "UTF-8";
-/*Сама кнопка главного меню*/
-@import url(main-menu-button.css);
 .main-menu-button {
   width: 45px;
   height: 45px;
@@ -15,10 +12,8 @@
   transition: all 0.2s ease;
 }
 
-/*Три белых полоски и их поведение при наведении мыши*/
 .main-menu-button::before,
-.main-menu-button > span,
-.main-menu-button::after {
+.main-menu-button > span, .main-menu-button::after {
   content: "";
   display: block;
   width: 20px;
@@ -33,8 +28,7 @@
 }
 
 .main-menu-button:hover::before,
-.main-menu-button:hover span,
-.main-menu-button:hover::after {
+.main-menu-button:hover span, .main-menu-button:hover::after {
   background: white;
 }
 
@@ -53,7 +47,7 @@
   transition-property: top, transform;
 }
 
-.active .main-menu-button::after {
+.main-menu-button .active {
   opacity: 0;
 }
 
@@ -63,7 +57,6 @@
 
 .container {
   position: fixed;
-  /* fixed - будет виден в том числе при прокрутке страницы*/
   display: block;
   width: 175px;
 }
@@ -78,24 +71,24 @@
   z-index: 1;
 }
 
-.show {
-  display: block;
-}
-
-.dropdown-menu-content a {
+.dropdown-menu-content .MenuLink {
   border-radius: 6px;
   color: black;
   padding: 12px 14px;
   display: flex;
 }
 
-a img {
-  width: 20px;
-  height: 20px;
+.MenuLink:hover {
+  background-color: grey;
 }
 
-a img:hover {
-  background-color: #ddd;
+.show {
+  display: block;
+}
+
+.MenuIcon {
+  width: 20px;
+  height: 20px;
 }
 
 .dropdown:hover .dropbtn {
@@ -106,7 +99,7 @@ ul {
   text-align: left;
 }
 
-li img {
+li .MenuIcon {
   margin-right: 10px;
 }
 
