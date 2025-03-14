@@ -1,31 +1,11 @@
 {
-    "name": "блатной_перебор",
+    "name": "Перебор а-ля Металлика",
     "pattern": 
-    [
-        {
-            "accent": "n",
-            "duration": 0.25,
-            "string": 6,
-            "finger": 1
-        },
-        {
-            "accent": "a",
-            "duration": 0.25,
-            "string": 3,
-            "finger": 2
-        },
-        {
-            "accent": "q",
-            "duration": 0.25,
-            "string": 6,
-            "finger": 1
-        },
-        {
-            "accent": "n",
-            "duration": 0.25,
-            "string": 4,
-            "finger": 3
-        }
-    ]
+    {
+        "strings": "B,3,2,B1,2,3",
+        "loudness": "L,U,U,SL,U,U",
+        "duration": "0, 1/6",
+        "category": "custom"
+    }
 }
   
