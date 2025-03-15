@@ -1,0 +1,10 @@
+{
+    "name": "Перебор а-ля Металлика",
+    "pattern": 
+    {
+        "strings": "6,3,2,6^1,2,3",
+        "loudness": "L,U,U,SL,U,U",
+        "category": "custom"
+    }
+}
+  

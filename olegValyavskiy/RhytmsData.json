@@ -1,0 +1,10 @@
+{
+    "name": "Четверка с глушением",
+    "pattern": 
+    {
+       "rhythm":"UDUD", 
+       "loudness":"UUXX",
+       "category":"custom"
+    }
+}
+  
