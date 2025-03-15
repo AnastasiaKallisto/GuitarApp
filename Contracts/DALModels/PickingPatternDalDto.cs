@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Contracts.DALModels;
 
-/// Кастомный перебор от пользователя
 public class PickingPatternDalDto
 {
     [Key]

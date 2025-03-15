@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Contracts.DALModels;
 
-/// Кастомный аккорд от пользователя
 public class ChordPatternDalDto
 {
     [Key]

@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Contracts.DALModels;
 
-/// Кастомный бой от пользователя
 public class StrummingPatternDalDto
 {
     [Key]
