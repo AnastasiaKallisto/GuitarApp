@@ -1,11 +1,11 @@
-using Contracts.Models;
+using Contracts.DALModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace GuitarDbContext.DbContext;
 
 public sealed class ApplicationDbContext : Microsoft.EntityFrameworkCore.DbContext
 {
-    public DbSet<User> Users { get; set; }
+    public DbSet<UserDalDto> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -14,6 +14,6 @@ public sealed class ApplicationDbContext : Microsoft.EntityFrameworkCore.DbConte
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<User>().ToTable("Users", "Auth");
+        modelBuilder.Entity<UserDalDto>().ToTable("Users", "Auth");
     }
 }
