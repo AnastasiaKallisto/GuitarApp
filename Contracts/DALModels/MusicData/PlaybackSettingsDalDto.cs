@@ -18,6 +18,16 @@ public class PlaybackSettingsDalDto
 
     /// Количество тактов в линии
     [Required]
-    [Range(1, 8)]
-    public int BeatsPerLine { get; set; }
+    [Range(1, 4)]
+    public int BarsPerLine { get; set; }
+    
+    // Размер такта по умолчанию (числитель)
+    [Required]
+    [Range(1, 16)]
+    public int BarNumerator { get; set; }
+    
+    // Размер такта по умолчанию (знаменатель)
+    [Required]
+    [Range(1, 16)]
+    public int BarDenominator { get; set; }
 }

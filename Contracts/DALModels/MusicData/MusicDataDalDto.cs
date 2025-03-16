@@ -19,8 +19,8 @@ public class MusicDataDalDto
 
     /// Список элементов с аккордами
     public List<ChordElementDalDto> Chords { get; set; }
-
-    /// Общее количество тактов
+    
+    /// Список тактов с указанием их размера
     [Required]
-    public int TotalBeats { get; set; }
+    public List<BarPeriodDalDto> Bars { get; set; }
 }
