@@ -1,26 +1,27 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Contracts.Models;
+namespace Contracts.DALModels;
 
-public class User
+public class UserDalDto
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Id { get; set; }
 
     [Required]
-    [MaxLength(100)]
+    [StringLength(100, MinimumLength = 1)]
     public string Username { get; set; }
 
     [Required]
     public string Email { get; set; }
 
     [Required]
+    [StringLength(100, MinimumLength = 1)]
     public string PasswordHash { get; set; }
 
     [Required]
-    [MaxLength(20)]
+    [StringLength(20, MinimumLength = 1)]
     public string Status { get; set; }
 
     [Required]

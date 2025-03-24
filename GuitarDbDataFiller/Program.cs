@@ -1,4 +1,4 @@
-﻿using Contracts.Models;
+﻿using Contracts.DALModels;
 using GuitarDbContext.DbContext;
 
 namespace GuitarDbDataFiller;
@@ -8,7 +8,7 @@ public static class Program
     public static void Main(string[] args)
     {
         // Создаем тестового пользователя
-        var testUser = new User
+        var testUser = new UserDalDto
         {
             Id = Guid.NewGuid(),
             Username = "testuser",
