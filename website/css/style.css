@@ -127,3 +127,42 @@ body {
 header {
   height: 100px;
 }
+
+.navigation__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 18px;
+  width: 28%;
+  right: 18px;
+}
+
+.navigation__item {
+  float: right;
+}
+
+.navigation__link {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navigation__link::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  background: red;
+  transition: .7s;
+}
+
+.navigation__link:hover::after {
+  width: 100%;
+}
