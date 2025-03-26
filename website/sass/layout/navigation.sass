@@ -1,0 +1,31 @@
+.navigation
+    &__nav
+    &__list
+        list-style-type: none
+        margin: 0
+        padding: 0
+        overflow: hidden
+        background-color: #333
+        position: fixed
+        top: 18px
+        width: 28%
+        right: 18px
+    &__item
+        float: right
+    &__link
+        display: block
+        color: white
+        text-align: center
+        padding: 14px 16px
+        text-decoration: none
+        &::after
+            content: ""
+            width: 0
+            height: 2px
+            position: absolute
+            right: 0
+            bottom: -5px
+            background: red
+            transition: .7s
+        &:hover::after
+            width: 100%
