@@ -1,6 +1,6 @@
 ### Хранение боев и переборов  
 #### Бои  
-Поля: name, rhythm, loudness, duration, category  
+Поля: name, rhythm, loudness, category  
   
 **name** - отображаемое название  
   
@@ -23,12 +23,12 @@ custom - пользовательские
 defaul - преддобавленные  
   
 #### Переборы  
-Поля: name, strings, loudness, duration, category  
+Поля: name, strings, loudness, category  
 **name** - Отображаемое название  
   
 **strings** - играемые струны  
 Число от 1 до 6 - номер струны  
-Числа через "^" - две играемых одновременно струны  
+Числа через "^" - одновременно играемые струны  
   
 **loudness** - как играется  
 L - громко (акцентированный удар)  
