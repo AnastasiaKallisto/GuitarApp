@@ -1,6 +1,6 @@
 name,rhythm,loudness,category
-Четверка, DUDU, UUUU, default
-Четверка с глушением, DUDD, UUX, default
+Четверка, DUDU, LUUU, default
+Четверка с глушением, DUDD, LUUX, default
 Четверка с акцентом, DUDU, LULU, default
 Шестерка, DDUUDU, LLUULU, default
 Шестерка с глушением, DDUUDU, LXUUXU, default
