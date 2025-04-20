@@ -1,0 +1,13 @@
+name,rhythm,loudness,category
+Четверка, DUDU, LUUU, default
+Четверка с глушением, DUDD, LUUX, default
+Четверка с акцентом, DUDU, LULU, default
+Шестерка, DDUUDU, LLUULU, default
+Шестерка с глушением, DDUUDU, LXUUXU, default
+Восьмерка, DDUUDUDU, LLUULUUU, default
+Восьмерка с паузами, D_DU_UD_, U0LU0UU0, default
+Галоп, DDUDDUDU, LLUULUUL, default
+Блатной бой, dUdu, UUSX, default
+Регги бой, D_D_, X0X0, default
+Испанский расгеадо, DdUdUu, LXSUXL, default
+Вальсовый бой, Dud, LUS, default
