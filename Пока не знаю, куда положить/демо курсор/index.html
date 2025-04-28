@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            position: fixed;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1500px;
+            height: 150px;
+            background: #555;
+        }
+
+        .marker {
+            position: absolute;
+            width: 80px;
+            height: 130px;
+            background: #888;
+            top: 10px;
+        }
+
+        .cursor {
+            position: absolute;
+            width: 2px;
+            height: 150px;
+            background: rgb(255, 32, 181);
+            z-index: 2;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container" id="container">
+    <div class="cursor" id="cursor"></div>
+</div>
+    <div class="controls">
+        <button id="playStop">Play</button>
+        <input type="number" id="bpm" value="120" min="1">
+    </div>
+    <script>
+        const cursor = document.getElementById('cursor');
+        const container = document.getElementById('container');
+        const playButton = document.getElementById('playStop');
+        const bpmInput = document.getElementById('bpm');
+        
+        const markerPositions = [];
+        const numMarkers = 16;
+        const markerWidth = 80;
+        const containerWidth = 1500;
+        
+        const totalMarkerWidth = numMarkers * markerWidth;
+        const totalSpacing = containerWidth - totalMarkerWidth;
+        const spacing = totalSpacing / (numMarkers + 1);
+        
+        for (let i = 0; i < numMarkers; i++) {
+            const marker = document.createElement('div');
+            marker.className = 'marker';
+            const left = spacing + i * (markerWidth + spacing);
+            marker.style.left = `${left}px`;
+            container.appendChild(marker);
+            
+            markerPositions.push({
+                start: left,
+                end: left + markerWidth
+            });
+        }
+
+        let isPlaying = false;
+        let currentPosition = 0;
+        let currentBPM = 60;
+        let pixelsPerSecond = (1500 * currentBPM) / (16 * 60);
+        let lastFrameTime = null;
+        let animationFrameId = null;
+
+        function findCurrentMarker(pos) {
+            for (const marker of markerPositions) {
+                if (pos >= marker.start && pos <= marker.end) {
+                    return marker;
+                }
+            }
+            return null;
+        }
+
+        function animate(timestamp) {
+            if (!lastFrameTime) lastFrameTime = timestamp;
+            const deltaTime = timestamp - lastFrameTime;
+            
+            currentPosition += (pixelsPerSecond * deltaTime) / 1000;
+            
+            if (currentPosition >= 1500) {
+                currentPosition = 0;
+            }
+            
+            cursor.style.left = `${currentPosition}px`;
+            lastFrameTime = timestamp;
+            
+            if (isPlaying) {
+                animationFrameId = requestAnimationFrame(animate);
+            }
+        }
+
+        playButton.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            
+            if (isPlaying) {
+                lastFrameTime = null;
+                animationFrameId = requestAnimationFrame(animate);
+            } else {
+                const currentMarker = findCurrentMarker(currentPosition);
+                if (currentMarker) {
+                    currentPosition = currentMarker.start - 10;
+                    cursor.style.left = `${currentMarker.start}px`;
+                }
+            }
+        });
+
+        bpmInput.addEventListener('input', (e) => {
+            currentBPM = parseInt(e.target.value) || 60;
+            pixelsPerSecond = (1500 * currentBPM) / (16 * 60);
+            
+            if (isPlaying) {
+                cancelAnimationFrame(animationFrameId);
+                lastFrameTime = null;
+                animationFrameId = requestAnimationFrame(animate);
+            }
+        });
+    </script>
+</body>
+</html>
