@@ -1,3 +1,6 @@
+// Проставить комментарии к группам переменных или к переменным
+
+
 const cursor = document.getElementById('cursor');
 const container = document.getElementById('container');
 const playButton = document.getElementById('playStop');
