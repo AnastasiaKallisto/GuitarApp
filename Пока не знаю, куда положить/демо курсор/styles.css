@@ -1,0 +1,25 @@
+.container {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1500px;
+    height: 150px;
+    background: #555;
+}
+
+.marker {
+    position: absolute;
+    width: 80px;
+    height: 130px;
+    background: #888;
+    top: 10px;
+}
+
+.cursor {
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    background: rgb(255, 32, 181);
+    z-index: 2;
+}
