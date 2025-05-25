@@ -1,0 +1,27 @@
+.chords-navigation
+    &__list
+        list-style-type: none
+        margin: 0
+        padding: 0
+        display: flex 
+        position: fixed
+        top: 18px
+        right: 18px
+    &__link
+        background-color: #333
+        font-size: 19px
+        font-family: 'Times New Roman', Times, serif
+        display: flex
+        padding-left: 20px
+        padding-right: 20px
+        align-items: center 
+        justify-content: center 
+        height: 50px 
+        color: white
+        text-align: center
+        text-decoration: none
+        &:hover:not(.active)
+            background-color: #111 
+
+.active
+    background-color: #04AA6D

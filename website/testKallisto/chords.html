@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GuitarSongCraft тестовая страница Каллисто</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  
+<!-- TODO Обрати внимание на расположение MainMenu и header-->
+
+<!-- TODO Изменила название класса и файла, перегенерить css файл, у меня он генерит в столбик, а не в одну строку-->
+
+<header class="header">
+  <div id="MainMenu"></div>
+  <div class="chords-navigation">
+    <nav class="chords-navigation__nav">
+      <ul class="chords-navigation__list">
+        <li>
+          <button class="chords-navigation__link" data-component="first">Первая кнопка</button>
+        </li>
+        <li>
+          <button class="chords-navigation__link" data-component="second">Вторая кнопка</button>
+        </li>
+        <li>
+          <button class="chords-navigation__link" data-component="third">Третья кнопка</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- сюда будет подгружаться содержимое -->
+<div id="component-container">
+
+</div>
+
+
+</body>
+<script src="../js/main_menu.js"></script>
+<script src="../js/chords_menu.js"></script>
+</html>
